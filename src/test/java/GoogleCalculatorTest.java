@@ -3,6 +3,10 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
@@ -30,8 +34,14 @@ public class GoogleCalculatorTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
+    @Epic(value = "Google калькулятор")
+    @Feature(value = "Простые математические операции")
+    @Story(value = "Сложение")
     @Test
     public void additionTest() {
+        Allure.getLifecycle().updateTestCase(result -> {
+            result.setName("Сложение");
+        });
         driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='2']")).click();
         driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='plus']")).click();
         driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='3']")).click();
@@ -40,8 +50,14 @@ public class GoogleCalculatorTest {
         Assert.assertEquals(result, "5");
     }
 
+    @Epic(value = "Google калькулятор")
+    @Feature(value = "Простые математические операции")
+    @Story(value = "Вычитание")
     @Test
     public void subtractionTest() {
+        Allure.getLifecycle().updateTestCase(result -> {
+            result.setName("Вычитание");
+        });
         driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='7']")).click();
         driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='minus']")).click();
         driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='2']")).click();
@@ -50,8 +66,14 @@ public class GoogleCalculatorTest {
         Assert.assertEquals(result, "5");
     }
 
+    @Epic(value = "Google калькулятор")
+    @Feature(value = "Простые математические операции")
+    @Story(value = "Умножение")
     @Test
     public void multiplicationTest() {
+        Allure.getLifecycle().updateTestCase(result -> {
+            result.setName("Умножение");
+        });
         driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='4']")).click();
         driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='multiply']")).click();
         driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='8']")).click();
@@ -60,8 +82,14 @@ public class GoogleCalculatorTest {
         Assert.assertEquals(result, "32");
     }
 
+    @Epic(value = "Google калькулятор")
+    @Feature(value = "Простые математические операции")
+    @Story(value = "Деление")
     @Test
     public void divisionTest() {
+        Allure.getLifecycle().updateTestCase(result -> {
+            result.setName("Деление");
+        });
         driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='6']")).click();
         driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='divide']")).click();
         driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='3']")).click();
